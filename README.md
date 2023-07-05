@@ -1,7 +1,7 @@
-Federated Learning Lifecycle Management Using Blockchain
+Federated Learning Lifecycle Management Using Blockchain:
 This repository contains the code implementation for managing the lifecycle of federated learning systems using blockchain technology. The system aims to address the challenges of auditing data exchange and managing data sharing agreements in federated learning.
 
-Introduction
+Introduction:
 Federated learning is an emerging approach to collaborative machine learning that allows multiple parties to train models without sharing their raw data. However, managing the lifecycle of federated learning systems presents various challenges, including data privacy, security, and trust. This project leverages blockchain technology to provide a secure and decentralized platform for auditing and managing data sharing agreements in federated learning.
 
 Usage
