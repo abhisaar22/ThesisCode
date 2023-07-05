@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Managing Federated Learning Lifecycle Using Blockchain</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .button-container a,
+        .button-container input[type="submit"] {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .gray-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .gray-buttons a {
+            background-color: #3f9be8; /* Darker shade of blue */
+        }
+
+        .gray-buttons a:hover {
+            background-color: #3491db; /* Slightly darker shade on hover */
+        }
+
+        .green-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .green-buttons input[type="submit"] {
+            background-color: #0e80e3; /* Slightly darker shade of blue */
+            border: none;
+            cursor: pointer;
+        }
+
+        .green-buttons input[type="submit"]:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Federated Learning-Blockchain Dashboard</h1>
+    <div class="button-container">
+        <div class="gray-buttons">
+            <a href="/initFL">Initialize FL</a>
+            <a href="/createAgreement">Create Data Sharing Agreement</a>
+            <a href="/updateTerms">Update Agreement Terms</a>
+            <a href="/recordExchange">Record Learning Exchange</a>
+            <a href="/contributions">Contributions</a>
+            <a href="/terminateAgreement">Terminate Agreement</a>
+            
+        </div>
+        <div class="green-buttons">
+            <form action="/updateModel" method="GET">
+                <input type="submit" value="Update Model">
+            </form>
+            <form action="/startFL" method="GET">
+                <input type="submit" value="Start Training">
+            </form>
+            <form action="/getTraining">
+                <input type="submit" value="Get Training Round">
+            </form>
+            <form action="/aggregateFL" method="POST">
+                <input type="submit" value="Model Aggregation">
+            </form>
+            <form action="/parametersFL" method="POST">
+                <input type="submit" value="Get Parameters">
+            </form>
+            <form action="/stopFL" method="POST">
+                <input type="submit" value="Stop Training">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+    </style>
+</head>
+<body>
+    <h1>Update Model</h1>
+    <form method="POST" action="/updateModel">
+        <label for="model_update">Model Update:</label>
+        <input type="text" id="model_update" name="model_update" required>
+    
+        <label for="version">Version:</label>
+        <input type="text" id="version" name="version" required>
+    
+        <label for="node_id">Node ID:</label>
+        <input type="text" id="node_id" name="node_id" required>
+    
+        <button type="submit">Update Model</button>
+    </form>
+    
+</body>
+</html>

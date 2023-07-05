@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FL Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .button-container button:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+    </style>
+</head>
+<body>  
+    {% if txHash %}
+        <p><strong>Transaction Hash:</strong> {{ txHash }}</p>
+    {% endif %}
+    
+    {% if txReceipt %}
+        <p><strong>Block Hash:</strong> {{ txReceipt['blockHash'].hex() }}</p>
+        <p><strong>Block Number:</strong> {{ txReceipt['blockNumber'] }}</p>
+        <p><strong>Gas Used:</strong> {{ txReceipt['gasUsed'] }}</p>
+        <p><strong>From:</strong> {{ txReceipt['from'] }}</p>
+        <p><strong>To:</strong> {{ txReceipt['to'] }}</p>
+    {% endif %}
+    
+    <h2>Model Information:</h2>
+    <p><strong>New Model Version:</strong> {{ newModelVersion }}</p>
+    
+    <h2>FL Nodes</h2>
+    {% if flNodes is defined and flNodes %}
+        <ul>
+        {% for flNode in flNodes %}
+            <li><strong>Node ID:</strong> {{ flNode.id }}</li>
+            <li><strong>FL Node Name:</strong> {{ flNode.name }}</li>
+            <li><strong>FL Node Weight:</strong> {{ flNode.weight }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No FL Nodes available.</p>
+    {% endif %}
+    
+    <h2>FL Aggregator</h2>
+    {% if flAggregator is defined and flAggregator %}
+        <p><strong>Aggregator Name:</strong> {{ flAggregator.name }}</p>
+        <p><strong>Aggregator Weight:</strong> {{ flAggregator.weight }}</p>
+    {% else %}
+        <p>No FL Aggregator available.</p>
+    {% endif %}
+
+    {% if updatedModelWeights %}
+        <h2>Updated Model Weights</h2>
+        <ul>
+            {% for weight in updatedModelWeights %}
+                <li>{{ weight }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if averageLatency %}
+        <h2>Average Latency</h2>
+        <p><strong>Average Latency:</strong> {{ averageLatency }} seconds</p>
+    {% endif %}
+    
+    {% if throughput %}
+        <h2>Throughput</h2>
+        <p><strong>Throughput:</strong> {{ throughput }} requests/second</p>
+    {% endif %}
+
+    <div class="button-container">
+        <button onclick="window.location.href='/index'">Go Back to Homepage</button>
+        <button onclick="window.location.href='/stopFL'">Stop FL</button>
+    </div>
+</body>
+</html>

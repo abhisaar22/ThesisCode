@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        strong {
+            display: block;
+            text-align: center;
+        }
+
+        a.button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+    </style>
+</head>
+<body>
+    <h1>Model Update</h1>
+
+    <p>Your model has been successfully updated.</p>
+
+    <h2>Transaction Receipt:</h2>
+    <p><strong>Transaction Hash:</strong> {{ txHash }}</p>
+    <p><strong>Block Hash:</strong> {{ txReceipt['blockHash'].hex() }}</p>
+    <p><strong>Block Number:</strong> {{ txReceipt['blockNumber'] }}</p>
+    <p><strong>Gas Used:</strong> {{ txReceipt['gasUsed'] }}</p>
+    <p><strong>From:</strong> {{ txReceipt['from'] }}</p>
+
+    <h2>Model Update Details:</h2>
+    <p><strong>Model Update:</strong> {{ modelUpdate }}</p>
+
+    {% if updatedNode %}
+    <h2>Updated Node Details:</h2>
+    <p><strong>Node ID:</strong> {{ updatedNode.id }}</p>
+    <p><strong>Node Name:</strong> {{ updatedNode.name }}</p>
+    <p><strong>Node Weight:</strong> {{ updatedNode.weight }}</p>
+    {% endif %}
+
+    <a class="button" href="/index">Go Back To Homepage</a>
+</body>
+
+</html>

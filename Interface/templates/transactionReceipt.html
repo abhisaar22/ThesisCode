@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        a.button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+    </style>
+</head>
+<body>
+    {% if use_synthetic_data %}
+    <h2>Synthetic Data:</h2>
+    <p><strong>Exchange ID:</strong> {{ exchangeID }}</p>
+    <p><strong>Contribution:</strong> {{ contribution }}</p>
+    {% endif %}
+
+    <h2>Transaction Receipt:</h2>
+    <p><strong>Transaction Hash:</strong> {{ txReceipt['transactionHash'].hex() }}</p>
+    <p><strong>Block Hash:</strong> {{ txReceipt['blockHash'].hex() }}</p>
+    <p><strong>Block Number:</strong>  {{ txReceipt['blockNumber'] }}</p>
+    <p><strong>Gas Used:</strong>  {{ txReceipt['gasUsed'] }}</p>
+    <p><strong>From:</strong>  {{ txReceipt['from'] }}</p>
+    <p><strong>To:</strong>  {{ txReceipt['to'] }}</p>
+
+    {% if averageLatency %}
+    <p><strong>Average Latency:</strong> {{ averageLatency }} seconds</p>
+    {% endif %}
+
+    {% if throughput %}
+    <p><strong>Throughput:</strong> {{ throughput }} requests per second</p>
+    {% endif %}
+
+    <a class="button" href="/index">Go Back To Homepage</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FL Data</title>
+  </head>
+  <body>
+    <h1>FL Nodes</h1>
+    <ul>
+      {% for node in fl_nodes %}
+        <li>{{ node.id }} - {{ node.name }} - {{ node.weight }}</li>
+      {% endfor %}
+    </ul>
+    <h1>FL Aggregator</h1>
+    <p>{{ fl_aggregator.name }} - {{ fl_aggregator.weight }}</p>
+  </body>
+</html>

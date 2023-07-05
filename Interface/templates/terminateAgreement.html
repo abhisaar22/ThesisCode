@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terminate Agreement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+    </style>
+</head>
+<body>
+    <h1>Terminate Agreement</h1>
+    <form method="POST">
+        <label for="agreement_id">Agreement ID:</label>
+        <input type="number" name="agreement_id" required><br><br>
+        <input type="submit" value="Terminate Agreement">
+    </form>
+</body>
+</html>

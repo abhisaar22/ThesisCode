@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agreement Created</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        a.button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Agreement Created Successfully!</h1>
+    {% if txHash %}
+        <hr>
+        <h2>Transaction Receipt:</h2>
+        <p><strong>Transaction Hash:</strong> {{ txReceipt['transactionHash'].hex() }}</p>
+        <p><strong>Block Hash:</strong> {{ txReceipt['blockHash'].hex() }}</p>
+        <p><strong>Block Number:</strong>  {{ txReceipt['blockNumber'] }}</p>
+        <p><strong>Gas Used:</strong>  {{ txReceipt['gasUsed'] }}</p>
+        <p><strong>From:</strong>  {{ txReceipt['from'] }}</p>
+        <p><strong>To:</strong>  {{ txReceipt['to'] }}</p>
+
+        <h2>Agreement Details:</h2>
+        <p><strong>Agreement ID:</strong> {{ agreementID }}</p>
+        <p><strong>Participant 1:</strong> {{ participant1 }}</p>
+        <p><strong>Participant 2:</strong> {{ participant2 }}</p>
+        <p><strong>Terms:</strong> {{ terms }}</p>
+    {% endif %}
+
+    <a class="button" href="/index">Go Back To Homepage</a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Agreement Terms</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+    </style>
+</head>
+<body>
+    <h2>Transaction Receipt:</h2>
+        <p><strong>Transaction Hash:</strong> {{ txReceipt['transactionHash'].hex() }}</p>
+        <p><strong>Block Hash:</strong> {{ txReceipt['blockHash'].hex() }}</p>
+        <p><strong>Block Number:</strong>  {{ txReceipt['blockNumber'] }}</p>
+        <p><strong>Gas Used:</strong>  {{ txReceipt['gasUsed'] }}</p>
+        <p><strong>From:</strong>  {{ txReceipt['from'] }}</p>
+        <p><strong>To:</strong>  {{ txReceipt['to'] }}</p>
+    
+    <h2>Updated Agreement Details:</h2>
+        <p><strong>Agreement ID:</strong> {{ agreementID }}</p>
+        <p><strong>Updated Terms:</strong>  {{ newTerms }}</p>
+    
+    <a href="/index">Go Back To Homepage</a>
+</body>
+</html>

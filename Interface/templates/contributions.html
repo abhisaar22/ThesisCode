@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Exchanges</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #76caf1;
+        }
+
+        th {
+            background-color: #9cedff;
+            text-align: left;
+        }
+
+        a.button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Exchange ID</th>
+                <th>Node</th>
+                <th>Contribution</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exchange_id, exchange in learningExchanges.items() %}
+            <tr>
+                <td>{{ exchange_id }}</td>
+                <td>{{ exchange.node }}</td>
+                <td>{{ exchange.contribution }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="button" href="/index">Go Back To Homepage</a>
+</body>
+</html>

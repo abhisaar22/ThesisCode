@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aggregate FL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            display: inline-block;
+            text-align: center;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #0e80e3; /* Slightly darker shade of blue for link */
+            background-color: #f1f8ff; /* Light blue background for buttons */
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .button-container a:hover {
+            color: #1065b9; /* Slightly darker shade on hover for link */
+        }
+    </style>
+</head>
+<body>
+    <h1>Model Aggregation Results:</h1>
+
+    <p><strong>Latency:</strong> {{ "%.6f" % latency }} seconds</p>
+    <p><strong>Throughput:</strong> {{ throughput }} updates per second</p>
+    <p><strong>Aggregated Model:</strong></p>
+    <ul>
+        {% for value in aggregated_model %}
+            <li>{{ value }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Transaction Hash:</strong> {{ txHash }}</p>
+    <p><strong>Block Hash:</strong> {{ txReceipt['blockHash'].hex() }}</p>
+    <p><strong>Block Number:</strong> {{ txReceipt['blockNumber'] }}</p>
+    <p><strong>Gas Used:</strong> {{ txReceipt['gasUsed'] }}</p>
+    <p><strong>From:</strong> {{ txReceipt['from'] }}</p>
+    <p><strong>To:</strong> {{ txReceipt['to'] }}</p>
+    <div class="button-container">
+        <a href="/index">Go Back To Homepage</a>
+    </div>
+</body>
+
+</html>

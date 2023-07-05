@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Record Exchange</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="checkbox"] {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+    </style>
+</head>
+<body>
+    <h1>Record Exchange</h1>
+    <p>Please enter an Exchange ID and the Contribution to record an exchange or select synthetic data to simulate a recorded exchange.</p>
+    <form method="POST">
+        <label for="exchange_id">Exchange ID:</label>
+        <input type="text" name="exchange_id" id="exchange_id"><br>
+        <label for="contribution">Contribution:</label>
+        <input type="text" name="contribution" id="contribution"><br><br>
+        <label for="synthetic_data">Use Synthetic Data:</label>
+        <input type="checkbox" name="synthetic_data" id="synthetic_data"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

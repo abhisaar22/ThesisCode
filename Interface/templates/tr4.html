@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agreement Termination</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        a {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+    </style>
+</head>
+<body>
+    <h2>Transaction Receipt:</h2>
+        <p><strong>Transaction Hash:</strong> {{ txReceipt['transactionHash'].hex() }}</p>
+        <p><strong>Block Hash:</strong> {{ txReceipt['blockHash'].hex() }}</p>
+        <p><strong>Block Number:</strong>  {{ txReceipt['blockNumber'] }}</p>
+        <p><strong>Gas Used:</strong>  {{ txReceipt['gasUsed'] }}</p>
+        <p><strong>From:</strong>  {{ txReceipt['from'] }}</p>
+        <p><strong>To:</strong>  {{ txReceipt['to'] }}</p>
+
+    <h2>Agreement Termination:</h2>
+        <p>Agreement #{{ agreementID }} has been successfully terminated!</p>
+
+    <a href="/index" class="btn">Go Back To Homepage</a>
+</body>
+</html>

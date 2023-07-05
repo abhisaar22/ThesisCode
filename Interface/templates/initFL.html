@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FL Initialization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        hr {
+            margin-top: 20px;
+            border: none;
+            border-top: 1px solid #ccc;
+            text-align: center;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #0e80e3; /* Slightly darker shade of blue for button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .button-container button:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover for button */
+        }
+    </style>
+</head>
+<body>
+    <h1>FL Initialization</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <form method="POST" action="/initFL">
+        <label for="fl_aggregator_name">FL Aggregator Name:</label><br>
+        <input type="text" name="fl_aggregator_name" id="fl_aggregator_name"><br>
+        <label for="fl_aggregator_weight">FL Aggregator Weight:</label><br>
+        <input type="text" name="fl_aggregator_weight" id="fl_aggregator_weight"><br>
+        <input type="submit" value="Initialize FL">
+    </form>
+    <hr>
+    {% if fl_nodes %}
+        <h3>FL Nodes:</h3>
+        <ul>
+            {% for node in fl_nodes %}
+                <li>{{ node.name }} (ID: {{ node.id }}, Weight: {{ node.weight }})</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if fl_aggregator %}
+        <h3>FL Aggregator:</h3>
+        <p>Name: {{ fl_aggregator.name }}</p>
+        <p>Weight: {{ fl_aggregator.weight }}</p>
+    {% endif %}
+    <div class="button-container">
+        <button onclick="window.location.href='/index'">Go Back to Homepage</button>
+    </div>
+</body>
+</html>

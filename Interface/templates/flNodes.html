@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FL Nodes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #afd5fb; /* Light blue background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .button-container a,
+        .button-container input[type="submit"] {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .gray-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .gray-buttons a {
+            background-color: #3f9be8; /* Darker shade of blue */
+        }
+
+        .gray-buttons a:hover {
+            background-color: #3491db; /* Slightly darker shade on hover */
+        }
+
+        .green-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .green-buttons input[type="submit"] {
+            background-color: #0e80e3; /* Slightly darker shade of blue */
+            border: none;
+            cursor: pointer;
+        }
+
+        .green-buttons input[type="submit"]:hover {
+            background-color: #1065b9; /* Slightly darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/">
+        <h3>Add FL Nodes:</h3>
+        <label for="node_id">Node ID:</label><br>
+        <input type="text" name="node_id" id="node_id"><br>
+        <label for="node_name">Node Name:</label><br>
+        <input type="text" name="node_name" id="node_name"><br>
+        <label for="node_weight">Node Weight:</label><br>
+        <input type="text" name="node_weight" id="node_weight"><br>
+        <input type="submit" name="add_node" value="Add Node">
+    </form>
+
+    <h3>Add FL Aggregator:</h3>
+    <form method="POST" action="/">
+        <label for="aggregator_name">Aggregator Name:</label><br>
+        <input type="text" name="aggregator_name" id="aggregator_name"><br>
+        <label for="aggregator_weight">Aggregator Weight:</label><br>
+        <input type="text" name="aggregator_weight" id="aggregator_weight"><br>
+        <input type="submit" name="add_aggregator" value="Add Aggregator">
+    </form>
+
+    <hr>
+    {% if fl_nodes %}
+        <h3>Current FL Nodes:</h3>
+        <ul>
+            {% for node in fl_nodes %}
+                <li>{{ node.name }} (ID: {{ node.id }}, Weight: {{ node.weight }})</li>
+            {% endfor %}
+        </ul>
+        <form method="POST" action="/">
+            <input type="submit" name="clear_nodes" value="Clear Nodes">
+        </form>
+    {% else %}
+        <p>No FL Nodes available.</p>
+    {% endif %}
+
+    {% if fl_aggregator %}
+        <h3>FL Aggregator:</h3>
+        <p>Name: {{ fl_aggregator.name }}</p>
+        <p>Weight: {{ fl_aggregator.weight }}</p>
+        <form method="POST" action="/">
+            <input type="submit" name="clear_aggregator" value="Clear Aggregator">
+        </form>
+    {% else %}
+        <p>No FL Aggregator available.</p>
+    {% endif %}
+
+    <hr>
+
+    <div class="button-container">
+        <form method="POST" action="/index">
+            <input type="submit" name="submit" value="Done Submitting Nodes">
+        </form>
+    </div>
+</body>
+
+
+</html>
